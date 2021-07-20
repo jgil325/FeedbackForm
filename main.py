@@ -1,6 +1,3 @@
-# Comment for first commit test
-# comment for testing JIRA
-# comment for testing slack integration
 from flask import Flask, render_template, url_for, flash, redirect, request
 
 # this gets the name of the file so Flask knows it's name
