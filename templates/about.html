@@ -1,5 +1,43 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h2>{{ subtitle }}</h2>
-    <p>{{ text }}</p>
+    <link rel="stylesheet" href="static/css/about.css" />
+
+    <h2 style="text-align:center">The Team</h2>
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                <img src="static/images/Nature-Pic.jpg" alt="Test Image" style="width:100%">
+                <div class="container">
+                <h2>First Name</h2>
+                <p>Some Description</p>
+                <p>More Description</p>
+                <p><button class="button">Contact</button></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="column">
+            <div class="card">
+                <img src="static/images/Nature-Pic.jpg" alt="Test Image" style="width:100%">
+                <div class="container">
+                <h2>Second Name</h2>
+                <p>Some Description</p>
+                <p>More Description</p>
+                <p><button class="button">Contact</button></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="column">
+            <div class="card">
+                <img src="static/images/Nature-Pic.jpg" alt="Test Image" style="width:100%">
+                <div class="container">
+                <h2>Third Name</h2>
+                <p>Some Description</p>
+                <p>More Description</p>
+                <p><button class="button">Contact</button></p>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock content %}
