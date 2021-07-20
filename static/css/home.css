@@ -32,11 +32,10 @@
 	width: 500px;
 }
 
-div {  
-    vertical-align: middle;  
-}
+
 
 img.center {
+    color: white;
     display:block;
     margin:auto;
 }
