@@ -24,6 +24,7 @@ a:hover {
 #nav {
   left: 0%;
   right: 0%;
+  top: 0;
   background-color: white;
   position: fixed;
   display: block;
@@ -64,4 +65,8 @@ a:hover {
   transform: scaleX(0);
   transition: 350ms ease-in-out;
   transform-origin: 0% 50%;
+}
+
+body {
+    padding-top: 65px;
 }
