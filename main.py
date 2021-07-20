@@ -10,6 +10,10 @@ app.config['SECRET_KEY'] = '2d6ca153ea201fe4daf5a90f380026b5'
 def home():
     return render_template("home.html", subtitle='Home Page')
 
+# API Page
+@app.route("/api")
+def api():
+    return render_template("api.html", subtitle='API')
 
 # Main Function
 if __name__ == '__main__':
