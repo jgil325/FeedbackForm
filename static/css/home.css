@@ -28,10 +28,17 @@
     
 }
 
+.subtitle {
+	letter-spacing: 2px;
+	max-width: 100%;
+	font-size: 150%;
+    vertical-align:middle;
+    text-align:center
+}
+
 #profile-icon {
 	width: 500px;
 }
-
 
 
 img.center {
