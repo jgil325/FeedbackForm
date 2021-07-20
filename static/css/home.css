@@ -1,0 +1,53 @@
+/**Home**/
+#home-section {
+	height: 100vh;
+	display: flex; 
+	align-items: center; 
+	justify-content: center;
+	flex-wrap: wrap;
+	align-content: center;
+}
+
+
+#landing-container {
+	padding-right: 4%;
+}
+
+#landing-text {
+	max-width:90%;
+	text-align: center;
+}
+
+.title {
+	position: relative;
+	left: 20px;
+	max-width: 100%;
+	font-size: 350%;
+	margin-top: 5%;
+	margin-bottom: 2%;
+    
+}
+
+.subtitle {
+	letter-spacing: 2px;
+	max-width: 100%;
+	font-size: 150%;
+    vertical-align:middle;
+    text-align:center
+}
+
+#profile-icon {
+	width: 500px;
+}
+
+
+img.center {
+    color: white;
+    display:block;
+    margin:auto;
+}
+
+
+.page-content {
+	width:100%;
+}
