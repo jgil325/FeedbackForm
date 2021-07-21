@@ -1,6 +1,6 @@
 from signup import RegistrationForm
 from login import LoginForm
-import time 
+import time
 import random
 import threading
 try:
@@ -84,6 +84,8 @@ def login():
     return render_template("login.html", form=form)
 
 # API Page
+
+
 @app.route("/api")
 def api():
     return render_template("api.html", subtitle='API')
