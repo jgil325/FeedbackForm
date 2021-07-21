@@ -14,8 +14,16 @@
     margin: 8px;
 }
 
+.about-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #474e5d;
+    color: white;
+}
+
 .container {
     padding: 0 16px;
+    text-align: center;
 }
 
 .container::after, .row::after {
