@@ -73,8 +73,37 @@ img {
     font-family: Tahoma, Arial, sans-serif;
     font-size: 16pt;
     line-height: 150%;
-    width: 300px;
-    text-align: center;
+    width: 350px;
     margin-top: 20px;
-    padding-right: 50px;
+    position:relative;
+    text-align: left;
+    padding-left: 50px;
+}
+
+summary::-webkit-details-marker {
+  display: none
+}
+
+summary > div {
+  width: calc(100% - 50px);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+details {
+  font-size: 20px;
+}
+
+summary {
+  display: block
+}
+
+summary:before {
+  content: "►";
+  margin: 0px 10px 0 0;
+  width: 20px;
+}
+
+details[open] summary:before {
+  content: "▼";
 }
