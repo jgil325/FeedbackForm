@@ -1,5 +1,7 @@
 from signup import RegistrationForm
-import time, random, threading
+import time
+import random
+import threading
 try:
     from flask import Flask, render_template, url_for, flash, redirect
     from flask_sqlalchemy import SQLAlchemy
@@ -22,16 +24,23 @@ class User(db.Model):
         return f"User('{self.username}', '{self.email}')"
 
 # Homepage
+
+
 @app.route("/")
 def layout():
     return render_template("home.html")
 
 # SignUp
+
+
 @app.route("/signup", methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
-    if form.validate_on_submit(): # checks if entries are valid
-        user = User(username=form.username.data, email=form.email.data, password=form.password.data)
+    if form.validate_on_submit():  # checks if entries are valid
+        user = User(
+            username=form.username.data,
+            email=form.email.data,
+            password=form.password.data)
         db.session.add(user)
         db.session.commit()
         flash(f'Account created for {form.username.data}!', 'success')
