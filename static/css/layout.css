@@ -65,3 +65,26 @@ a:hover {
   transition: 350ms ease-in-out;
   transform-origin: 0% 50%;
 }
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  padding-top: 80px;
+}
+
+/* _forms.scss:7 */
+.form-control {
+  display: block;
+  width: 35%;
+  height: $input-height;
+  padding: $input-padding-y $input-padding-x;
+  font-size: $font-size-base;
+  line-height: $input-line-height;
+  color: $input-color;
+  background-color: $input-bg;
+  background-clip: padding-box;
+  border: $input-border-width solid $input-border-color;
+}
