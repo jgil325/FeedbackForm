@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
     <div class="content-section"> <!-- CSS styling -->
+        <h1>Login</h1>
         <form method="POST" action=""> <!-- POST sends the info of the form -->
             {{ form.hidden_tag() }} <!-- passes in your SECRET_KEY -->
             <fieldset class="form-group"> <!-- more CSS styling -->
@@ -18,7 +19,6 @@
            {{ form.username(class="form-control form-control-lg") }}
        {% endif %}
      </div>
-     <div class="form-group">
          {{ form.password.label(class="form-control-label") }}
          {% if form.password.errors %}
            {{ form.password(class="form-control form-control-lg is-invalid") }}
@@ -30,12 +30,9 @@
        {% else %}
            {{ form.password(class="form-control form-control-lg") }}
        {% endif %}
-     </div>
-</fieldset>
-
-         <div class="form-group", method="post">
+                <br>
                  {{ form.submit(class="btn btn-outline-info") }}
-              </div>
+                </fieldset>
          </form>
      </div>
 
