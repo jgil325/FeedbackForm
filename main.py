@@ -1,9 +1,10 @@
 from signup import RegistrationForm
+from login import LoginForm
 import time
 import random
 import threading
 try:
-    from flask import Flask, render_template, url_for, flash, redirect
+    from flask import Flask, render_template, url_for, flash, redirect, request
     from flask_sqlalchemy import SQLAlchemy
 except ImportError:
     print("Import Error")
@@ -37,18 +38,54 @@ def layout():
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():  # checks if entries are valid
-        user = User(
-            username=form.username.data,
-            email=form.email.data,
-            password=form.password.data)
-        db.session.add(user)
-        db.session.commit()
-        flash(f'Account created for {form.username.data}!', 'success')
-#         return redirect(url_for('home', id="/")) # if so - send to home page
+        username = request.form.get('username')
+        email = request.form.get('email')
+        user = User.query.filter_by(username=username).first()
+        email_query = User.query.filter_by(email=email).first()
+        if user and email_query:
+            flash('username and email is already in use.')
+            return redirect(url_for('register'))
+        elif user:
+            flash('username is already in use.')
+            return redirect(url_for('register'))
+        elif email_query:
+            flash('email is already in use.')
+            return redirect(url_for('register'))
+        else:
+            user = User(
+                username=form.username.data,
+                email=form.email.data,
+                password=form.password.data)
+            db.session.add(user)
+            db.session.commit()
+            flash(f'Account created for {form.username.data}!', 'success')
+            return redirect(url_for('login'))
     return render_template('signup.html', title='SignUp', form=form)
 
+# Login
+
+
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        username = request.form.get('username')
+        password = request.form.get('password')
+        user = User.query.filter_by(username=username).first()
+        pwd = User.query.filter_by(password=password).first()
+        if not user:
+            flash('No user found. PLease Login or Sign up!')
+            return redirect(url_for('login'))
+        elif not pwd:
+            flash('PLease check your login details and try again')
+            return redirect(url_for('login'))
+        flash('Login Success')
+        return redirect(url_for('layout'))
+    return render_template("login.html", form=form)
 
 # API Page
+
+
 @app.route("/api")
 def api():
     return render_template("api.html", subtitle='API')
