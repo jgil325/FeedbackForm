@@ -47,6 +47,12 @@ def register():
 #         return redirect(url_for('home', id="/")) # if so - send to home page
     return render_template('signup.html', title='SignUp', form=form)
 
+# Login
+
+
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+    return render_template("login.html")
 
 # API Page
 @app.route("/api")
