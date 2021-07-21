@@ -24,6 +24,7 @@ a:hover {
 #nav {
   left: 0%;
   right: 0%;
+  top: 0;
   background-color: white;
   position: fixed;
   display: block;
@@ -87,4 +88,8 @@ a:hover {
   background-color: $input-bg;
   background-clip: padding-box;
   border: $input-border-width solid $input-border-color;
+}
+
+body {
+    padding-top: 65px;
 }
