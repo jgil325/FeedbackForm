@@ -65,3 +65,12 @@ a:hover {
   transition: 350ms ease-in-out;
   transform-origin: 0% 50%;
 }
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  padding-top: 80px;
+}
