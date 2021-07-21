@@ -11,6 +11,12 @@ def layout():
     return render_template("home.html")
 
 
+# API Page
+@app.route("/api")
+def api():
+    return render_template("api.html", subtitle='API')
+
+
 # Main Function
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0")
