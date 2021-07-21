@@ -5,26 +5,21 @@ try:
     from flask_sqlalchemy import SQLAlchemy
 except ImportError:
     print("Import Error")
+# this gets the name of the file so Flask knows it's name
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '092779225dde53d0709bfdeee7b421b8'
+app.config['SECRET_KEY'] = '2d6ca153ea201fe4daf5a90f380026b5'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
 
 
 class User(db.Model):
-  id = db.Column(db.Integer, primary_key=True)
-  username = db.Column(db.String(20), unique=True, nullable=False)
-  email = db.Column(db.String(120), unique=True, nullable=False)
-  password = db.Column(db.String(60), nullable=False)
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(20), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    password = db.Column(db.String(60), nullable=False)
 
-  def __repr__(self):
-    return f"User('{self.username}', '{self.email}')"
-
-
-# this gets the name of the file so Flask knows it's name
-app = Flask(__name__)
-app.config['SECRET_KEY'] = '2d6ca153ea201fe4daf5a90f380026b5'
-
+    def __repr__(self):
+        return f"User('{self.username}', '{self.email}')"
 
 # Homepage
 @app.route("/")
