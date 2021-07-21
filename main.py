@@ -1,9 +1,10 @@
 from signup import RegistrationForm
-import time
+from login import LoginForm
+import time 
 import random
 import threading
 try:
-    from flask import Flask, render_template, url_for, flash, redirect
+    from flask import Flask, render_template, url_for, flash, redirect, request
     from flask_sqlalchemy import SQLAlchemy
 except ImportError:
     print("Import Error")
@@ -52,7 +53,21 @@ def register():
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
-    return render_template("login.html")
+    form = LoginForm()
+    if form.validate_on_submit():
+        username = request.form.get('username')
+        password = request.form.get('password')
+        user = User.query.filter_by(username=username).first()
+        pwd = User.query.filter_by(password=password).first()
+        if not user:
+            flash('No user found. PLease Login or Sign up!')
+            return redirect(url_for('login'))
+        elif not pwd:
+            flash('PLease check your login details and try again')
+            return redirect(url_for('login'))
+        flash('Login Success')
+        return redirect(url_for('login'))
+    return render_template("login.html", form=form)
 
 # API Page
 @app.route("/api")
