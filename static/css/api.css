@@ -1,30 +1,57 @@
-. . .
-/* Include padding and border in total box size*/
-* {
-  box-sizing: border-box;
+html {
+  height: 100%;
+  background: #f3f3f3;
+  background: -moz-linear-gradient(top, #f3f3f3 0%, #ffffff 50%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3f3f3), color-stop(50%,#ffffff));
+  background: -webkit-linear-gradient(top, #f3f3f3 0%,#ffffff 50%);
+  background: -o-linear-gradient(top, #f3f3f3 0%,#ffffff 50%);
+  background: -ms-linear-gradient(top, #f3f3f3 0%,#ffffff 50%);
+  background: linear-gradient(top, #f3f3f3 0%,#ffffff 50%);
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f3f3f3', endColorstr='#ffffff',GradientType=0 );
 }
 
-/* Create two equal columns that float next to each other */
-. . .
-
-/* Large image */
-.large-image {
-  background: url('../../images/translate.png');
-  background-size: cover;
-  background-position: center;
+.wrapper {
+  width: 650px;
+  margin: auto;
+  padding: 25px 0px;
 }
 
-.container {
+.pad {
+  width: 650px;
+  height: 50px;
+  margin: auto;
+  padding: 25px 0px;
+}
+
+h1, h4 {
+  align-self: center;
+  font-family: Helvetica Neue, Arial, sans-serif;
+  font-weight: normal;
+  margin: 0; 
+}
+h1 { 
+  font-size: 24pt;
+}
+h4 {
+  font-size: 16pt;
+  color: #aaa; 
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+figure {
+  float: left;
+}
+figure img {
+  max-width: 350px;
+}
+
+section {
+  font-family: Tahoma, Arial, sans-serif;
+  line-height: 150%;
   float: right;
-  width: 45%;
-  padding: 40px;
-  padding-left:70px;
-  padding-right: 70px;
-  height: 475px;
-  margin:30px;
-  margin-right:30px;
-  margin-bottom: 70px;
-  background-color: #808080;
-  line-height:2;
-  text-emphasis-color: #000000;
+  width: 300px;
+  color: #333;
 }
