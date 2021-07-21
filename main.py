@@ -66,7 +66,7 @@ def login():
             flash('PLease check your login details and try again')
             return redirect(url_for('login'))
         flash('Login Success')
-        return redirect(url_for('login'))
+        return redirect(url_for('layout'))
     return render_template("login.html", form=form)
 
 # API Page
