@@ -12,6 +12,7 @@ sudo pip3 install flask
 sudo pip3 install flask-wtf
 sudo pip3 install SpeechRecognition
 sudo pip3 install turbo-flask
+sudo pip3 install SQLAlchemy
 ```
 
 ## Usage
