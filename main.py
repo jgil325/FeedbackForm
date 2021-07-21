@@ -7,8 +7,8 @@ app.config['SECRET_KEY'] = '2d6ca153ea201fe4daf5a90f380026b5'
 
 # Homepage
 @app.route("/")
-def home():
-    return render_template("home.html", subtitle='Home Page')
+def layout():
+    return render_template("home.html")
 
 
 # API Page

@@ -12,21 +12,42 @@
     <link rel="stylesheet" href="static/css/layout.css" />
     <link rel="stylesheet" href="https://use.typekit.net/ufg7hqz.css" />
 
-    <title>Feeback</title>
+    <title>Feedback</title>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <div id="google_translate_element"></div>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          },
+          "google_translate_element"
+        );
+      }
+    </script>
     <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-153644395-1"
+      type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
     ></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "UA-153644395-1");
+      $(document).ready(function () {
+        $("#google_translate_element").bind(
+          "DOMNodeInserted",
+          function (event) {
+            $(".goog-te-menu-value span:first").html("Translate");
+            $(".goog-te-menu-frame.skiptranslate").load(function () {
+              setTimeout(function () {
+                $(".goog-te-menu-frame.skiptranslate")
+                  .contents()
+                  .find(".goog-te-menu2-item-selected .text")
+                  .html("Translate");
+              }, 100);
+            });
+          }
+        );
+      });
     </script>
   </head>
 
@@ -38,10 +59,8 @@
       <a href="/login" class="nav-item left">LOGIN</a>
       <a href="/api" class="nav-item left">API</a>
       <a href="/about" class="nav-item left">ABOUT</a>
-     </div>
-    <div class="container">
-        {% block content %}
-        {% endblock %}
     </div>
+    {% block content %}{% endblock %}
+      
   </body>
 </html>
