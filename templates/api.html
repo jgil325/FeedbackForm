@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+    <link rel="stylesheet" href="static/css/api.css"/>
+    <div class="product">
+      <header>
+        <hgroup>
+            <div class="pad"></div>
+          <h1>Google Translate API</h1>
+          <h4>The most amazing translation API available.</h4>
+        </hgroup>
+      </header>
+      <div class="container">
+          <figure>
+              <img src="static/images/translate.png">
+          </figure>
+          <section>
+              <p>Translation API Basic uses Google’s neural machine translation technology to instantly translate texts into more than one hundred languages. Translation API Advanced offers the same fast, dynamic results you get with Basic and additional customization features. Customization matters for domain- and context-specific terms or phrases, and formatted document translation.</p>
+          </section>
+      </div>
+      <div class="features">
+          <details>
+              <summary><div>API Features</div></summary>
+                  <ul>
+                    <li>Unparalleled language support</li>
+                    <li>Best-in-class quality</li>
+                    <li>Domain specificity</li>
+                  </ul>
+          </details>             
+      </div>
+    </div>
+{% endblock content %}
