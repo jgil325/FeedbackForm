@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
     <div class="content-section"> <!-- CSS styling -->
+        <h1>Login</h1>
         <form method="POST" action=""> <!-- POST sends the info of the form -->
             {{ form.hidden_tag() }} <!-- passes in your SECRET_KEY -->
             <fieldset class="form-group"> <!-- more CSS styling -->
