@@ -1,0 +1,43 @@
+fieldset { 
+  border:1px solid lightgray;
+  margin: 10px;
+ }
+
+
+h1 {
+  font-size: 1.5em;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+fieldset { 
+  border:1px solid black;
+  margin: 10px;
+ }
+
+legend {
+  font-weight: 700;
+}
+ #rating {
+    grid-column: 2 / 4;
+    text-align: center;
+  }
+ #comments-box {
+    grid-column: 2 / 4;
+    text-align: center;
+  }
+ #btn {
+    grid-row: 9;
+    grid-column: 2 / 4;
+    text-align: center;
+    margin-bottom: 5%;
+  }
+  #submit:hover {
+    background-color: #fce38a;
+    color: #364f6b;
+    box-shadow: 1px 2px 5px #364f6b;
+  }
+
+
+
+

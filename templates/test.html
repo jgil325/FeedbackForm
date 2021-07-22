@@ -1,29 +1,40 @@
 {% extends "layout.html" %}
 
 {% block content %}
+    <link rel="stylesheet" href="static/css/test.css" />
      <div class="content-section"> <!-- CSS styling -->
-        <h1>Suvery Form</h1>
-        <form method="POST" action=""> <!-- POST sends the info of the form -->
+        <h1 id="title">Survery Form</h1>
+
+        <form id="survey-form" method="POST" action=""> <!-- POST sends the info of the form -->
             {{ form.hidden_tag() }} <!-- passes in your SECRET_KEY -->
             <fieldset class="form-group"> <!-- more CSS styling -->
-            
-     <div class="form-group">
-         <label>Rating</label>
+  <!-- ------------------Survey Details---------------------------- -->
+     <div class="fieldset">
          {% if form.rating.errors %}
-           {{ form.rating(class="form-control form-control-lg is-invalid") }}
            <div class="invalid-feedback">
              {% for error in form.rating.errors%}
                  <span>{{error}}</span>
              {% endfor %}
            </div>
        {% else %}
-           {{ form.rating(class="form-control form-control-lg") }}
+         <div id="rating">
+           <tr>
+         <td>{{ form.rating.label }}</td> 
+         <td>{{ form.rating }}</td> 
+         </tr>   
+         </div>
        {% endif %}
+       <div id="comments-box">
+            <p>What do you like about the SEO?</p>
+            {{ form.text_area(cols=40, rows=5) }}
+        </div>
      </div>
-                
+                    
                 
      <br>
-     {{ form.submit(class="btn btn-outline-info") }}
+     <div id="btn">
+         {{ form.submit() }}
+     </div>
             </fieldset>
        </form>
 </div>
