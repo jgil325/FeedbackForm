@@ -14,6 +14,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = '2d6ca153ea201fe4daf5a90f380026b5'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
+db2 = SQLAlchemy(app)
 
 
 class User(db.Model):
@@ -26,15 +27,15 @@ class User(db.Model):
         return f"User('{self.username}', '{self.email}')"
 
 
-class SurveyResponse(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(20), unique=False, nullable=False)
-    email = db.Column(db.String(120), unique=False, nullable=False)
-    rating = db.Column(db.String(2), nullable=False)
-    comments = db.Column(db.String(524288), nullable=True)
+class SurveyResponse(db2.Model):
+    id = db2.Column(db.Integer, primary_key=True)
+    name = db2.Column(db.String(20), unique=False, nullable=False)
+    email = db2.Column(db.String(120), unique=False, nullable=False)
+    rating = db2.Column(db.String(2), nullable=False)
+    comments = db2.Column(db.String(524288), nullable=False)
 
     def __repr__(self):
-        return f"SurveyResponse('{self.name}', '{self.email}', '{self.rating}', '{self.comments}')"
+        return f"SurveyResponse('{self.rating}', '{self.comments}')"
 
 # Homepage
 
@@ -112,7 +113,7 @@ def about():
 # Survey Page
 
 
-@app.route("/survey")
+@app.route("/survey", methods=['GET', 'POST'])
 def survey():
     form = SurveyForm()
     if form.validate_on_submit():
@@ -120,15 +121,13 @@ def survey():
         email = request.form.get('email')
         rating = request.form.get('rating')
         comments = request.form.get('comments')
-        name = SurveyResponse.query.filter_by(name=name).first()
-        email_query = SurveyResponse.query.filter_by(email=email).first()
         response = SurveyResponse(
                 name=form.name.data,
                 email=form.email.data,
                 rating=form.rating.data,
-                comments=form.comments.data)
-        db.session.add(response)
-        db.session.commit()
+                comments=form.text_area.data)
+        db2.session.add(response)
+        db2.session.commit()
         flash(f'Survey Submitted for {form.name.data}!', 'success')
     return render_template("survey.html", form=form)
 
