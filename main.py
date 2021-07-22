@@ -7,6 +7,9 @@ import threading
 try:
     from flask import Flask, render_template, url_for, flash, redirect, request
     from flask_sqlalchemy import SQLAlchemy
+    from flask_login import LoginManager, UserMixin
+    from flask_login import login_user, logout_user,
+    from flask_login import current_user, login_required
 except ImportError:
     print("Import Error")
 # this gets the name of the file so Flask knows it's name
@@ -25,6 +28,22 @@ class User(db.Model):
     def __repr__(self):
         return f"User('{self.username}', '{self.email}')"
 
+    def __init__(self, username, password):
+        self.username = username
+        self.password = password
+
+    def is_authenticated(self):
+        return True
+
+    def is_active(self):
+        return True
+
+    def is_anonymous(self):
+        return False
+
+    def get_id(self):
+        return str(self.id)
+
 
 class SurveyResponse(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -35,6 +54,37 @@ class SurveyResponse(db.Model):
 
     def __repr__(self):
         return f"SurveyResponse('{self.rating}', '{self.comments}')"
+
+# Login Manager
+
+
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = 'Login'
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
+# Admin Page
+
+
+@app.route('/admin')
+@login_required
+def admin():
+    name = current_user.username
+    return render_template('admin.html', name=name)
+
+# Logout
+
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    flash('Logged out')
+    return redirect(url_for('login'))
 
 # Homepage
 
@@ -92,7 +142,8 @@ def login():
             flash('PLease check your login details and try again')
             return redirect(url_for('login'))
         flash('Login Success')
-        return redirect(url_for('layout'))
+        login_user(user)
+        return redirect(url_for('admin'))
     return render_template("login.html", form=form)
 
 # API Page
