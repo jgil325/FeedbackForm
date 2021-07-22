@@ -74,7 +74,8 @@ def load_user(user_id):
 @login_required
 def admin():
     name = current_user.username
-    return render_template('admin.html', name=name)
+    responses = db.execute("SELECT * FROM SurveyResponse")
+    return render_template('admin.html', name=name, responses=responses)
 
 # Logout
 
