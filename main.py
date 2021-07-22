@@ -90,10 +90,19 @@ def login():
 def api():
     return render_template("api.html", subtitle='API')
 
+# About Page
+
 
 @app.route("/about")
 def about():
     return render_template("about.html", subtitle='About Page')
+
+# Survey Page
+
+
+@app.route("/survey")
+def survey():
+    return render_template("survey.html", subtitle='Survey Page')
 
 
 # Main Function
