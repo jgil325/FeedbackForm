@@ -14,6 +14,8 @@ class SurveyForm(FlaskForm):
                        validators=[DataRequired(), Length(min=2, max=20)])
     email = StringField('Email',
                         validators=[DataRequired(), Email()])
-    rating = IntegerField('Choose a rating:', widget=h5widgets.NumberInput(min=0, max=5, step=1), validators=[DataRequired()])
-    text_area = TextAreaField('comments')    
+    rating = IntegerField('Choose a rating:',
+                          widget=h5widgets.NumberInput(min=0, max=5, step=1),
+                          validators=[DataRequired()])
+    text_area = TextAreaField('comments')
     submit = SubmitField('Submit')
