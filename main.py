@@ -108,14 +108,12 @@ def survey():
         name = request.form.get('name')
         email = request.form.get('email')
         rating = request.form.get('rating')
-        comments = request.form.get('comments')
-        name = SurveyResponse.query.filter_by(name=name).first()
-        email_query = SurveyResponse.query.filter_by(email=email).first()
+        comments = request.form.get('text_area')
         response = SurveyResponse(
                 name=form.name.data,
                 email=form.email.data,
                 rating=form.rating.data,
-                comments=form.comments.data)
+                comments=form.text_area.data)
         db.session.add(response)
         db.session.commit()
         flash(f'Survey Submitted for {form.name.data}!', 'success')
