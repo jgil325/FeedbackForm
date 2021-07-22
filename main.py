@@ -25,6 +25,17 @@ class User(db.Model):
     def __repr__(self):
         return f"User('{self.username}', '{self.email}')"
 
+
+class SurveyResponse(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(20), unique=False, nullable=False)
+    email = db.Column(db.String(120), unique=False, nullable=False)
+    rating = db.Column(db.String(2), nullable=False)
+    comments = db.Column(db.String(524288), nullable=True)
+
+    def __repr__(self):
+        return f"SurveyResponse('{self.name}', '{self.email}', '{self.rating}', '{self.comments}')"
+
 # Homepage
 
 
