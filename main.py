@@ -28,9 +28,10 @@ class User(db.Model):
     def __repr__(self):
         return f"User('{self.username}', '{self.email}')"
 
-    def __init__(self, username, password):
+    def __init__(self, username, password, email):
         self.username = username
         self.password = password
+        self.email = email
 
     def is_authenticated(self):
         return True
