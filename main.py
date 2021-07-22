@@ -25,6 +25,17 @@ class User(db.Model):
     def __repr__(self):
         return f"User('{self.username}', '{self.email}')"
 
+
+class SurveyResponse(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(20), unique=False, nullable=False)
+    email = db.Column(db.String(120), unique=False, nullable=False)
+    rating = db.Column(db.String(2), nullable=False)
+    comments = db.Column(db.String(524288), nullable=False)
+
+    def __repr__(self):
+        return f"SurveyResponse('{self.rating}', '{self.comments}')"
+
 # Homepage
 
 
@@ -101,14 +112,14 @@ def about():
 # Survey Page
 
 
-@app.route("/survey")
+@app.route("/survey", methods=['GET', 'POST'])
 def survey():
     form = SurveyForm()
     if form.validate_on_submit():
         name = request.form.get('name')
         email = request.form.get('email')
         rating = request.form.get('rating')
-        comments = request.form.get('text_area')
+        comments = request.form.get('comments')
         response = SurveyResponse(
                 name=form.name.data,
                 email=form.email.data,
