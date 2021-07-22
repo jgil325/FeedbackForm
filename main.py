@@ -117,7 +117,7 @@ def survey():
                 comments=form.comments.data)
         db.session.add(response)
         db.session.commit()
-        flash(f'Account created for {form.username.data}!', 'success')
+        flash(f'Survey Submitted for {form.name.data}!', 'success')
     return render_template("survey.html", subtitle='Survey Page')
 
 
