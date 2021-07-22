@@ -7,12 +7,12 @@ except ImportError:
 
 
 class SurveyForm(FlaskForm):
-    username = StringField('Username',
-                           validators=[DataRequired(), Length(min=2, max=20)])
+    name = StringField('Name',
+                       validators=[DataRequired(), Length(min=2, max=20)])
     email = StringField('Email',
                         validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    confirm_password = PasswordField(
-        'Confirm Password', validators=[
-            DataRequired(), EqualTo('password')])
+    rating = SelectField(u'Rating', 
+                         choices=[('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5')], 
+                         validators=[DataRequired()])
+    comments = TextAreaField('Comments')
     submit = SubmitField('Submit')
