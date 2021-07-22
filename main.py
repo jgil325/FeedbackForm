@@ -91,13 +91,10 @@ def about():
 # Survey Page
 @app.route("/survey")
 def survey():
-    return render_template("survey.html", subtitle='Survey Page')
-
-# Test Page
-@app.route("/test")
-def test():
     form = SurveyForm()
-    return render_template("test.html", form=form)
+    return render_template("survey.html", form=form)
+
+
 
 
 
