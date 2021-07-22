@@ -110,14 +110,14 @@ def survey():
         comments = request.form.get('comments')
         name = SurveyResponse.query.filter_by(name=name).first()
         email_query = SurveyResponse.query.filter_by(email=email).first()
-            response = SurveyResponse(
-                name = form.name.data,
-                email = form.email.data,
-                rating = form.rating.data,
-                comments = form.comments.data)
-            db.session.add(response)
-            db.session.commit()
-            flash(f'Account created for {form.username.data}!', 'success')
+        response = SurveyResponse(
+                name=form.name.data,
+                email=form.email.data,
+                rating=form.rating.data,
+                comments=form.comments.data)
+        db.session.add(response)
+        db.session.commit()
+        flash(f'Account created for {form.username.data}!', 'success')
     return render_template("survey.html", subtitle='Survey Page')
 
 
