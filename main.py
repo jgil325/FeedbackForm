@@ -14,7 +14,6 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = '2d6ca153ea201fe4daf5a90f380026b5'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
-db2 = SQLAlchemy(app)
 
 
 class User(db.Model):
@@ -27,12 +26,12 @@ class User(db.Model):
         return f"User('{self.username}', '{self.email}')"
 
 
-class SurveyResponse(db2.Model):
-    id = db2.Column(db.Integer, primary_key=True)
-    name = db2.Column(db.String(20), unique=False, nullable=False)
-    email = db2.Column(db.String(120), unique=False, nullable=False)
-    rating = db2.Column(db.String(2), nullable=False)
-    comments = db2.Column(db.String(524288), nullable=False)
+class SurveyResponse(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(20), unique=False, nullable=False)
+    email = db.Column(db.String(120), unique=False, nullable=False)
+    rating = db.Column(db.String(2), nullable=False)
+    comments = db.Column(db.String(524288), nullable=False)
 
     def __repr__(self):
         return f"SurveyResponse('{self.rating}', '{self.comments}')"
@@ -126,8 +125,8 @@ def survey():
                 email=form.email.data,
                 rating=form.rating.data,
                 comments=form.text_area.data)
-        db2.session.add(response)
-        db2.session.commit()
+        db.session.add(response)
+        db.session.commit()
         flash(f'Survey Submitted for {form.name.data}!', 'success')
     return render_template("survey.html", form=form)
 
