@@ -8,7 +8,8 @@ try:
     from flask import Flask, render_template, url_for, flash, redirect, request
     from flask_sqlalchemy import SQLAlchemy
     from flask_login import LoginManager, UserMixin
-    from flask_login import login_user, logout_user, current_user, login_required
+    from flask_login import login_user, logout_user,
+    from flask_login import current_user, login_required
 except ImportError:
     print("Import Error")
 # this gets the name of the file so Flask knows it's name
@@ -16,6 +17,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = '2d6ca153ea201fe4daf5a90f380026b5'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
+
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -25,11 +27,11 @@ class User(db.Model):
 
     def __repr__(self):
         return f"User('{self.username}', '{self.email}')"
-    
+
     def __init__(self, username, password):
         self.username = username
         self.password = password
-        
+
     def is_authenticated(self):
         return True
 
@@ -41,6 +43,7 @@ class User(db.Model):
 
     def get_id(self):
         return str(self.id)
+
 
 class SurveyResponse(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -59,10 +62,11 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'Login'
 
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
-    
+
 # Admin Page
 
 
