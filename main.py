@@ -1,5 +1,6 @@
 from signup import RegistrationForm
 from login import LoginForm
+from survey import SurveyForm
 import time
 import random
 import threading
@@ -91,6 +92,13 @@ def about():
 @app.route("/survey")
 def survey():
     return render_template("survey.html", subtitle='Survey Page')
+
+# Test Page
+@app.route("/test")
+def test():
+    form = SurveyForm()
+    return render_template("test.html", form=form)
+
 
 
 # Main Function
