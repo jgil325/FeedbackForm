@@ -25,15 +25,11 @@ class User(db.Model):
         return f"User('{self.username}', '{self.email}')"
 
 # Homepage
-
-
 @app.route("/")
 def layout():
     return render_template("home.html")
 
 # SignUp
-
-
 @app.route("/signup", methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
@@ -63,8 +59,6 @@ def register():
     return render_template('signup.html', title='SignUp', form=form)
 
 # Login
-
-
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     form = LoginForm()
@@ -84,16 +78,19 @@ def login():
     return render_template("login.html", form=form)
 
 # API Page
-
-
 @app.route("/api")
 def api():
     return render_template("api.html", subtitle='API')
 
-
+# About Page
 @app.route("/about")
 def about():
     return render_template("about.html", subtitle='About Page')
+
+# Survey Page
+@app.route("/survey")
+def survey():
+    return render_template("survey.html", subtitle='Survey Page')
 
 
 # Main Function
