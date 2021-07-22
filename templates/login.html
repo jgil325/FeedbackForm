@@ -1,7 +1,17 @@
 {% extends "layout.html" %}
 {% block content %}
     <div class="content-section"> <!-- CSS styling -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                 <div class="alert alert-{{ category }}">
+                   {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
         <h1>Login</h1>
+        
         <form method="POST" action=""> <!-- POST sends the info of the form -->
             {{ form.hidden_tag() }} <!-- passes in your SECRET_KEY -->
             <fieldset class="form-group"> <!-- more CSS styling -->

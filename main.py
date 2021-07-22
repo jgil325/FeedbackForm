@@ -8,7 +8,7 @@ try:
     from flask import Flask, render_template, url_for, flash, redirect, request
     from flask_sqlalchemy import SQLAlchemy
     from flask_login import LoginManager, UserMixin
-    from flask_login import login_user, logout_user,
+    from flask_login import login_user, logout_user
     from flask_login import current_user, login_required
 except ImportError:
     print("Import Error")

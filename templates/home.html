@@ -4,6 +4,15 @@
 
   
     <div class="page-content"> 
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                 <div class="alert alert-{{ category }}">
+                   {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
             <!--Home Page-->
 			<section id="home-section">
 				<div class="container row">
