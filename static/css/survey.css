@@ -1,0 +1,70 @@
+fieldset { 
+  border:1px solid lightgray;
+  margin: 10px;
+ }
+
+ #flash-message {
+    color: rgba(178, 34, 34, 0.726);
+  }
+
+  #error {
+    color: rgba(178, 34, 34, 0.726);
+    grid-column: 3;
+  }
+
+ 
+  #name:invalid, #email:invalid {
+    border-left-color: #f38181;
+  }
+  
+  #name:valid, #email:valid {
+    border-left-color: #eaffd0;
+  }
+h1 {
+  font-size: 1.5em;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+fieldset { 
+  border:1px solid black;
+  margin: 10px;
+ }
+
+legend {
+  font-weight: 700;
+}
+ #rating {
+    grid-column: 2 / 4;
+    text-align: center;
+     margin-bottom: 10px;
+  }
+#name {
+    grid-column: 2 / 4;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+#email {
+   grid-column: 4 / 4;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+ #comments-box {
+    grid-column: 2 / 4;
+    text-align: center;
+  }
+ #btn {
+    grid-row: 9;
+    grid-column: 2 / 4;
+    text-align: center;
+    margin-bottom: 5%;
+  }
+  #submit:hover {
+    background-color: #fce38a;
+    color: #364f6b;
+    box-shadow: 1px 2px 5px #364f6b;
+  }
+
+
+
+

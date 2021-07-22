@@ -1,76 +1,41 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    <link rel="stylesheet" href="static/css/signup.css"/>
-        <div class="content-section">
-            <h2>Sign Up</h2>
-           <form method="POST" action="">
-              {{ form.hidden_tag() }}
-              <fieldset class="form-group">
-                 <div class="form-group">
-                    {{ form.username.label(class="form-control-label") }}
-                    {% if form.username.errors %}
-                    {{ form.username(class="form-control form-control-lg is-invalid") }}
-                    <div class="invalid-feedback">
-                       {% for error in form.username.errors%}
-                       <span>{{error}}</span>
-                       {% endfor %}
-                    </div>
-                    {% else %}
-                    {{ form.username(class="form-control form-control-lg") }}
-                    {% endif %}
-                 </div>
-                 {% if form.username.errors %}
-                 {{ form.username(class="form-control form-control-lg is-invalid") }}
-                 <div class="invalid-feedback">
-                    {% for error in form.username.errors%}
-                    <span>{{error}}</span>
-                    {% endfor %}
-                 {% endif %}
-                 </div>
-                 <div class="form-group">
-                    {{ form.email.label(class="form-control-label") }}
-                    {% if form.email.errors %}
-                    {{ form.email(class="form-control form-control-lg is-invalid") }}
-                    <div class="invalid-feedback">
-                       {% for error in form.email.errors%}
-                       <span>{{error}}</span>
-                       {% endfor %}
-                    </div>
-                    {% else %}
-                    {{ form.email(class="form-control form-control-lg") }}
-                    {% endif %}
-                 </div>
-                 <div class="form-group">
-                    {{ form.password.label(class="form-control-label") }}
-                    {% if form.password.errors %}
-                    {{ form.password(class="form-control form-control-lg is-invalid") }}
-                    <div class="invalid-feedback">
-                       {% for error in form.password.errors%}
-                       <span>{{error}}</span>
-                       {% endfor %}
-                    </div>
-                    {% else %}
-                    {{ form.password(class="form-control form-control-lg") }}
-                    {% endif %}
-                 </div>
-                 <div class="form-group">
-                    {{ form.confirm_password.label(class="form-control-label") }}
-                    {% if form.confirm_password.errors %}
-                    {{ form.confirm_password(class="form-control form-control-lg is-invalid") }}
-                    <div class="invalid-feedback">
-                       {% for error in form.confirm_password.errors%}
-                       <span>{{error}}</span>
-                       {% endfor %}
-                    </div>
-                    {% else %}
-                    {{ form.confirm_password(class="form-control form-control-lg") }}
-                    {% endif %}
-                  </div>
-              <div class="form-group">
-                      {{ form.submit(class="btn btn-outline-info") }}
-              </div>
-                  </fieldset>
-           </form>
+    <link rel="stylesheet" href="static/css/test.css" />
+     <div class="content-section"> <!-- CSS styling -->
+        <h1 id="title">Survery Form</h1>
+
+        <form id="survey-form" method="POST" action=""> <!-- POST sends the info of the form -->
+            {{ form.hidden_tag() }} <!-- passes in your SECRET_KEY -->
+            <fieldset class="form-group"> <!-- more CSS styling -->
+  <!-- ------------------Survey Details---------------------------- -->
+     <div class="fieldset">
+         {% if form.rating.errors %}
+           <div class="invalid-feedback">
+             {% for error in form.rating.errors%}
+                 <span>{{error}}</span>
+             {% endfor %}
+           </div>
+       {% else %}
+         <div id="rating">
+           <tr>
+         <td>{{ form.rating.label }}</td> 
+         <td>{{ form.rating }}</td> 
+         </tr>   
+         </div>
+       {% endif %}
+       <div id="comments-box">
+            <p>What do you like about the SEO?</p>
+            {{ form.text_area(cols=40, rows=5) }}
         </div>
+     </div>
+                    
+                
+     <br>
+     <div id="btn">
+         {{ form.submit() }}
+     </div>
+            </fieldset>
+       </form>
+</div>
 {% endblock content %}

@@ -1,5 +1,6 @@
 from signup import RegistrationForm
 from login import LoginForm
+from survey import SurveyForm
 import time
 import random
 import threading
@@ -102,7 +103,7 @@ def about():
 
 @app.route("/survey")
 def survey():
-    form = surveyForm()
+    form = SurveyForm()
     if form.validate_on_submit():
         name = request.form.get('name')
         email = request.form.get('email')
@@ -118,7 +119,7 @@ def survey():
         db.session.add(response)
         db.session.commit()
         flash(f'Survey Submitted for {form.name.data}!', 'success')
-    return render_template("survey.html", subtitle='Survey Page')
+    return render_template("survey.html", form=form)
 
 
 # Main Function
