@@ -57,7 +57,6 @@ six==1.11.0
 sniffio==1.2.0
 SpeechRecognition==3.8.1
 SQLAlchemy==1.4.19
-ssh-import-id==5.7
 toml==0.10.2
 Turbo-Flask==0.6.0
 typing-extensions==3.10.0.0
