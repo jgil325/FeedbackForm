@@ -11,7 +11,7 @@
               {% endfor %}
             {% endif %}
           {% endwith %}
-        <h1 id="title">Survery Form</h1>
+        <h1 id="title">Survey Form</h1>
 
         <form id="survey-form" method="POST" action=""> <!-- POST sends the info of the form -->
             {{ form.hidden_tag() }} <!-- passes in your SECRET_KEY -->
@@ -47,7 +47,7 @@
          </div>
        {% endif %}
        <div id="comments-box">
-            <p>What do you like about the SEO?</p>
+            <p>What do you like about the program?</p>
             {{ form.text_area(cols=40, rows=5) }}
         </div>
      </div>
