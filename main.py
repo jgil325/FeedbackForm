@@ -75,7 +75,7 @@ def load_user(user_id):
 @login_required
 def admin():
     name = current_user.username
-    all_data= SurveyResponse.query.all()
+    all_data = SurveyResponse.query.all()
     return render_template('admin.html', name=name, responses=all_data)
 
 # Logout
