@@ -16,6 +16,7 @@ except ImportError:
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '2d6ca153ea201fe4daf5a90f380026b5'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 
 
@@ -186,4 +187,4 @@ def survey():
 
 # Main Function
 if __name__ == '__main__':
-    app.run(debug=True, host="0.0.0.0")
+    app.run(debug=False)
