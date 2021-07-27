@@ -1,6 +1,7 @@
 # FeedbackForm
 [![Check Style](https://github.com/jgil325/FeedbackForm/actions/workflows/checkStyle.yml/badge.svg)](https://github.com/jgil325/FeedbackForm/actions/workflows/checkStyle.yml)
 [![Tests](https://github.com/jgil325/FeedbackForm/actions/workflows/test.yml/badge.svg)](https://github.com/jgil325/FeedbackForm/actions/workflows/test.yml)
+[![Deploy Test](https://github.com/jgil325/FeedbackForm/actions/workflows/deploy.yml/badge.svg)](https://github.com/jgil325/FeedbackForm/actions/workflows/deploy.yml)
 
 # This app is now deployed!
    Visit at https://feedback-form-seo.herokuapp.com/
