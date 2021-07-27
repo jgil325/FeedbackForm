@@ -2,6 +2,9 @@
 [![Check Style](https://github.com/jgil325/FeedbackForm/actions/workflows/checkStyle.yml/badge.svg)](https://github.com/jgil325/FeedbackForm/actions/workflows/checkStyle.yml)
 [![Tests](https://github.com/jgil325/FeedbackForm/actions/workflows/test.yml/badge.svg)](https://github.com/jgil325/FeedbackForm/actions/workflows/test.yml)
 
+# This app is now deployed!
+   Visit at https://feedback-form-seo.herokuapp.com/
+
 ## Installation
 
 Use the package manager pip3 to install the following dependencies:
